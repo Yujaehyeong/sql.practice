@@ -49,7 +49,7 @@ where title like "%Engineer";
 
 -- 11
 select *
-from salaries
+from titles
 where emp_no = 13250
 order by from_date;
 
