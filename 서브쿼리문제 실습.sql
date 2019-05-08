@@ -45,33 +45,43 @@ and b.salary >any (
 
 -- 문제4. 현재, 사원들의 사번, 이름, 매니저 이름, 부서 이름으로 출력해 보세요
 
-SELECT 
-    a.emp_no,
-    CONCAT(a.first_name, ' ', a.last_name),
-    CONCAT(d.first_name, ' ', d.last_name),
-    e.dept_name
-FROM
-    employees a,
-    dept_emp b,
-    dept_manager c,
-    employees d,
-    departments e
-WHERE
-    a.emp_no = b.emp_no
-        AND b.dept_no = c.dept_no
-        AND d.emp_no = d.emp_no
-        AND c.dept_no = e.dept_no
-        AND b.to_date = '9999-01-01'
-        AND c.to_date = '9999-01-01';
+-- SELECT 
+--     a.emp_no,
+--     CONCAT(a.first_name, ' ', a.last_name),
+--     CONCAT(d.first_name, ' ', d.last_name),
+--     e.dept_name
+-- FROM
+--     employees a,
+--     dept_emp b,
+--     dept_manager c,
+--     employees d,
+--     departments e
+-- WHERE
+--     a.emp_no = b.emp_no
+--         AND b.dept_no = c.dept_no
+--         AND d.emp_no = d.emp_no
+--         AND c.dept_no = e.dept_no
+--         AND b.to_date = '9999-01-01'
+--         AND c.to_date = '9999-01-01'
+-- and e.dept_name= 'Marketing';
 
--- select a.emp_no as '번호', a.first_name as '이름', b.first_name '매니저이름', e.dept_name'부서'
--- from employees a, employees b, dept_emp c, dept_manager d, departments e
--- where a.emp_no = c.emp_no
--- and c.dept_no = e.dept_no
--- and b.emp_no = d.emp_no
--- and d.dept_no = e.dept_no
--- and c.to_date = '9999-01-01'
--- and d.to_date = '9999-01-01';
+select a.emp_no as '번호', a.first_name as '이름', b.first_name '매니저이름', e.dept_name'부서'
+from employees a, employees b, dept_emp c, dept_manager d, departments e
+where a.emp_no = c.emp_no
+and c.dept_no = e.dept_no
+and b.emp_no = d.emp_no
+and d.dept_no = e.dept_no
+and c.to_date = '9999-01-01'
+and d.to_date = '9999-01-01'
+and e.dept_name = 'Marketing';
+
+
+-- select b.dept_name, c.first_name
+-- from dept_manager a, departments b, employees c
+-- where c.emp_no = a.emp_no
+-- and a.dept_no = b.dept_no
+-- and a.to_date = '9999-01-01';
+
 
 -- 문제5. 현재, 평균연봉이 가장 높은 부서의 사원들의 사번, 이름, 직책, 연봉을 조회하고 연봉 순으로 출력하세요.
 SELECT 
